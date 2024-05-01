@@ -22,12 +22,12 @@ namespace CMP1903_A1_2324
             Die die = new Die(); // created die object
             Game game = new Game(); // created game object
             int roll = die.Roll(); // called die method 
-            int dieTotal = game.AddDieRolls(); // called game method
+          int dieTotal = game.ThreeOrMoreMethod // called game method
 
             Debug.Assert(roll < 7 && roll > 0, $"The Roll {roll} Is Outside Of Desired Range 1-6."); // checks to see roll is in range 1-6
-            Debug.Assert(dieTotal < 19 && dieTotal > 2, $"The Die Total {dieTotal} Is Out Of Desired Range 3-18"); // checks dice total is in range 3-18
+            Debug.Assert(dieTotal >= 20, $"The Score {dieTotal} Is Less Than 20");  // checks dice total is below 20
             Debug.Assert(roll is int, "The Roll Type Is Not Of Desired Type Int"); // checks roll is an integer
-            Debug.Assert(dieTotal is int, "The Die Total Is Not Of Desired Type Int"); // checks die total is an integer
+            Debug.Assert(dieTotal is int, "Score Is Not Of Desired Type Int"); // checks die total is an integer
 
 
 
