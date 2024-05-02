@@ -73,7 +73,7 @@ namespace CMP1903_A1_2324
         public int ThreeOrMoreMethod()
         {
 
-            int dieTotal = 0;
+            int dieTotal = 0; // initialises variables needed
             bool turn = true;
             int one = 0;
             int two = 0;
@@ -87,13 +87,13 @@ namespace CMP1903_A1_2324
 
 
 
-            int dieRoll1 = _die1.Roll();
+            int dieRoll1 = _die1.Roll(); // rolls 5 die
             int dieRoll2 = _die2.Roll();
             int dieRoll3 = _die3.Roll();
             int dieRoll4 = _die4.Roll();
             int dieRoll5 = _die5.Roll();
             int[] rolls = { dieRoll1, dieRoll2, dieRoll3, dieRoll4, dieRoll5 }; // array of rolls
-            for (int i = 0; i < rolls.Length; i++)
+            for (int i = 0; i < rolls.Length; i++) // loops array to check what the die rolled
             {
                 if (i == 1)
                 {
@@ -120,23 +120,24 @@ namespace CMP1903_A1_2324
                     six += 1;
                 }
             }
-            int[] numbers = { one, two, three, four, five, six };
+            int[] numbers = { one, two, three, four, five, six }; // array of what numbers were rolled
             foreach (int number in numbers)
             {
                 if (number < 3)
-                    turn = false;
+                    turn = false; // either two of a kind or no matches
+                Choice();
             }
             foreach (int number in numbers)
             {
-                if (number >= 3)
+                if (number >= 3) // no reroll aloud if 3 of a kind or more are rolled
                     turn = true;
             }
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length; i++) // loops array to set all that are not 2 to 0 to allow for die reroll
             {
                 if (numbers[i] != 2)
                 {
-                    numbers[i] = 0;
+                    numbers[i] = 0; // sets the number to 0 
                 }
 
             } 
@@ -145,7 +146,7 @@ namespace CMP1903_A1_2324
 
 
 
-            foreach (int number in numbers)
+            foreach (int number in numbers) // loops array to check for any potential score in either 3,4 or 5 of a kind
             {
                 if (number == 3)
                 {
@@ -168,7 +169,7 @@ namespace CMP1903_A1_2324
 
 
 
-            dieRoll1 = _die1.Roll();
+            dieRoll1 = _die1.Roll(); // rolls 3 die again 
             dieRoll2 = _die2.Roll();
             dieRoll3 = _die3.Roll();
             int[] rolls2 = { dieRoll1, dieRoll2, dieRoll3 }; // array of rolls
@@ -241,7 +242,7 @@ namespace CMP1903_A1_2324
             { 
                 Game game = new Game();
             
-                game.RollTwoDie();
+                game.RollTwoDie(); // calls method
             }
 
 
@@ -252,9 +253,9 @@ namespace CMP1903_A1_2324
         {
             public void Three()
             { 
-                Game game = new Game();
+                Game game = new Game(); // creates game object
             
-                game.ThreeOrMoreMethod();
+                game.ThreeOrMoreMethod(); // calls method
             }
 
 

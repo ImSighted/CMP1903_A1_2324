@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,7 @@ namespace CMP1903_A1_2324
 {
     internal class Program
     {
+        
         public static void Main(string[] args)
         {
 
@@ -20,8 +23,7 @@ namespace CMP1903_A1_2324
              */
             Game game = new Game(); // creates game oject
             Testing testing = new Testing(); // creates test object
-          
-            
+           // int gameCount = 0;
             
             
             Console.WriteLine("Welcome To The Dice Game Application"); // welcomes user
@@ -29,19 +31,25 @@ namespace CMP1903_A1_2324
             string choice = Console.ReadLine();
             if (choice == "1")
             {
-                int SevensOutPlayer1 = game.RollTwoDie();
-                int SevensOutPlayer2 = game.RollTwoDie();
-                if (SevensOutPlayer1 > SevensOutPlayer2)
+                int sevensOutPlayer1 = game.RollTwoDie(); //calls game method
+                int sevensOutPlayer2 = game.RollTwoDie();
+                if (sevensOutPlayer1 > sevensOutPlayer2) //determins outcome
                 {
-                    Console.WriteLine("Player1 Wins");
+                    Console.WriteLine($"Player 1 Wins With Score {sevensOutPlayer1}");
+                  //  gameCount += 1;
+                   // Console.WriteLine(gameCount);
                 }
-                if (SevensOutPlayer1 < SevensOutPlayer2)
+                if (sevensOutPlayer1 < sevensOutPlayer2)
                 {
-                    Console.WriteLine("Player2 Wins");
+                    Console.WriteLine($"Player 2 Wins With Score {sevensOutPlayer2}");
+                   // gameCount += 1;
+                   // Console.WriteLine(gameCount);
                 }
-                if (SevensOutPlayer1 == SevensOutPlayer2)
+                if (sevensOutPlayer1 == sevensOutPlayer2)
                 {
-                    Console.WriteLine("Draw");
+                    Console.WriteLine($"Draw With a Score Of {sevensOutPlayer1}");
+                 //   gameCount += 1;
+                  //  Console.WriteLine(gameCount);
                 }
 
                 
@@ -62,8 +70,8 @@ namespace CMP1903_A1_2324
                
                 Main(args); // calls method 
             }
-            
-            
+              
+
 
 
 
